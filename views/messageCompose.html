@@ -1,0 +1,36 @@
+<ul class="navBar">
+    <li><a href="#/profile/{{userid}}">Profile</a></li>
+    <li><a href="#/inbox/{{userid}}">Message</a></li>
+    <li><a href="#/">Logout</a></li>
+</ul>
+<div class="messagePage">
+    <ul>
+        <li><a href="#/inbox/{{userid}}">INBOX</a></li>
+        <li><a href="#/sentmail/{{userid}}">SENT MAIL</a></li>
+        <li style="background-color: rgba(225, 214, 208, 0.96)"><a style="color: #773340" href="#/compose/{{userid}}">COMPOSE</a></li>
+    </ul>
+    <div id="messageBox">
+        <form>
+            <div class="inputContainer">
+                <label for="receiver"><span>To:</span></label>
+                <input ng-model="mailReceiver" type="text" id="receiver" class="input-field" placeholder="Username of the receiver"/>
+                <div ng-show="usernameNotFind">Username not found!</div>
+            </div>
+            <div class="inputContainer">
+                <label for="subject"><span>Subject:</span></label>
+                <input ng-model="mailSubject" type="text" id="subject" class="input-field" placeholder="Title of the message"/>
+            </div>
+            <div class="inputContainer">
+                <label for="content"><span>Content:</span></label>
+                <textarea ng-model="mailContent" id="content" class="input-field"  placeholder="Content of the message" rows="5"></textarea>
+            </div>
+            <div class="inputContainer">
+                <label for="sendMail"><span></span></label>
+                <div id="sendMail">
+                    <input type="button" value="Send" ng-click="sendMail(mailReceiver,mailSubject,mailContent)"/>
+                    <input type="button" value="Cancel" style="background-color: white; color: #61413f" ng-click="cancelSendMail()"/>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
